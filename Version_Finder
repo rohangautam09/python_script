@@ -1,0 +1,58 @@
+print ('\x1bc')
+import shutil
+def main():
+    print('1  . FIST \n2  . FIUAT\n3  . FIPROD\n4  . FIHOTFIXST\n5  . FIHOTFIXUAT\n6  . ALL REGIONS\n')
+    regiongroup =raw_input('Select RegionGroup : ')
+    if len(regiongroup) == 0:
+        print('No input !')
+        exit()
+    if regiongroup not in ['1','2','3','4','5','6']:
+        print('Invalid choice !')
+        exit()
+    select = raw_input('Enter component/IR : ')
+    if len(select) == 0:
+        print('No input !')
+        exit()
+    if regiongroup in ['1','6']:
+        print('\nF I S T\n')
+        newPath = shutil.copy('/utilities/Current/FIST_promotions.txt','/home/promoter/promotions.txt')
+        with open('/home/promoter/script_execution/backup_promotions/FIST_promotions.txt') as openfile:
+            for line in openfile:
+                if select.lower() in line.lower():
+                    print line.split()[9] + '   ' + line.split()[0] + '  ' + line.split()[3] + '      ' + line.split()[5]
+    if regiongroup in ['2','6']:
+        print('\nF I U A T\n')
+        newPath = shutil.copy('/utilities/intranet/Current/FIUAT_promotions.txt','/home/promoter/promotions.txt')
+        with open('/home/promoter/script_execution/backup_promotions/FIUAT_promotions.txt') as openfile:
+            for line in openfile:
+                if select.lower() in line.lower():
+                    print line.split()[9] + '   ' + line.split()[0] + '  ' + line.split()[3] + '      ' + line.split()[5]
+    if regiongroup in ['3','6']:
+        print('\nF I P R O D\n')
+        newPath = shutil.copy('/utilitie/promotions.txt','/home/promoter/promotions.txt')
+        with open('/home/promoter/script_execution/backup_promotions/FIPROD_promotions.txt') as openfile:
+            for line in openfile:
+                if select.lower() in line.lower():
+                    print line.split()[9] + '   ' + line.split()[0] + '  ' + line.split()[3] + '      ' + line.split()[5]
+    if regiongroup in ['4','6']:
+        print('\nF I H O T F I X S T\n')
+        newPath = shutil.copy('/utilities/promotions.txt','/home/promoter/script_execution/backup_promotionspromotions.txt')
+        with open('/home/promoter/script_execution/backup_promotions/FIHOTFIXST_promotions.txt') as openfile:
+            for line in openfile:
+                if select.lower() in line.lower():
+                    print line.split()[9] + '   ' + line.split()[0] + '  ' + line.split()[3] + '      ' + line.split()[5]
+    if regiongroup in ['5','6']:
+        print('\nF I H O T F I X U A T\n')
+        newPath = shutil.copy('/utilities/promotions.txt','/home/promoter/script_execution/backup_promotions/promotions.txt')
+        with open('/home/promoter/script_execution/backup_promotions/FIHOTFIXUAT_promotions.txt') as openfile:
+            for line in openfile:
+                if select.lower() in line.lower():
+                    print line.split()[9] + '   ' + line.split()[0] + '  ' + line.split()[3] + '      ' + line.split()[5]
+
+    restart = raw_input('\nPress Enter to Continue ')
+    if restart == '':
+        print ('\x1bc')
+        main()
+    else:
+        exit()
+main()
