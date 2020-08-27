@@ -16,7 +16,7 @@ if regionGroup == '1':
             version1 = line.split()[1]
             version2 = version1.split('.')
             ver = version2[1]
-            with open ('/utilities/intranet/data/versions/SBI/CoreBanking/FI/Current/FIST_ObjComponentList.txt') as openfile1:
+            with open ('/utilities/ObjComponentList.txt') as openfile1:
                 for line1 in openfile1:
                     if path in line1:
                         path1 = line1.split()[0]
@@ -37,7 +37,7 @@ elif regionGroup == '2':
             version1 = line.split()[1]
             version2 = version1.split('.')
             ver = version2[1]
-            with open ('/utilities/intranet/data/versions/SBI/CoreBanking/FI/Current/FIUAT_ObjComponentList.txt') as openfile2:
+            with open ('/utilities/UAT_ObjComponentList.txt') as openfile2:
                 for line2 in openfile2:
                     if path in line2:
                         path2 = line2.split()[0]
@@ -59,7 +59,7 @@ elif regionGroup == '3':
             version1 = line.split()[1]
             version2 = version1.split('.')
             ver = version2[1]
-            with open ('/utilities/intranet/data/versions/SBI/CoreBanking/FI/Current/FIPROD_ObjComponentList.txt') as openfile3:
+            with open ('/utilities/intranet/ObjComponentList.txt') as openfile3:
                 for line3 in openfile3:
                     if path in line3:
                         path3 = line3.split()[0]
