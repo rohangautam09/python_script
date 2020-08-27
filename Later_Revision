@@ -1,0 +1,74 @@
+print ('\x1bc')
+print('1. FIST\n2. FIUAT\n3. FIPROD')
+regionGroup = raw_input('Select RegionGroup : ')
+if len(regionGroup) == 0:
+    print('No Input !')
+    exit()
+if regionGroup not in ['1','2','3']:
+    print('Invalid Input !')
+num = 0
+tmp = 0
+if regionGroup == '1':
+    with open('input_LaterRevision.txt') as openfile:
+        for line in openfile:
+            num += 1
+            path = line.split()[0]
+            version1 = line.split()[1]
+            version2 = version1.split('.')
+            ver = version2[1]
+            with open ('/utilities/intranet/data/versions/SBI/CoreBanking/FI/Current/FIST_ObjComponentList.txt') as openfile1:
+                for line1 in openfile1:
+                    if path in line1:
+                        path1 = line1.split()[0]
+                        version11 = line1.split()[1]
+                        version12 = version11.split('.')
+                        ver1 = version12[1]
+                        if int(ver)<int(ver1):
+                            print path + ' ' + version1 + '              Will have later revision with version    ' + version11
+                        else:
+                            tmp += 1
+    if tmp == num:
+        print ('No Later Revision Found')
+elif regionGroup == '2':
+    with open('input_LaterRevision.txt') as openfile:
+        for line in openfile:
+            num += 1
+            path = line.split()[0]
+            version1 = line.split()[1]
+            version2 = version1.split('.')
+            ver = version2[1]
+            with open ('/utilities/intranet/data/versions/SBI/CoreBanking/FI/Current/FIUAT_ObjComponentList.txt') as openfile2:
+                for line2 in openfile2:
+                    if path in line2:
+                        path2 = line2.split()[0]
+                        version11 = line2.split()[1]
+                        version12 = version11.split('.')
+                        ver2 = version12[1]
+                        if int(ver)<int(ver2):
+                            print path + ' ' + version1 + '              Will have later revision!!   ' + version11
+                        else:
+                            tmp += 1
+
+    if tmp == num:
+        print('No Later Revision Found')
+elif regionGroup == '3':
+    with open('input_LaterRevision.txt') as openfile:
+        for line in openfile:
+            num += 1
+            path = line.split()[0]
+            version1 = line.split()[1]
+            version2 = version1.split('.')
+            ver = version2[1]
+            with open ('/utilities/intranet/data/versions/SBI/CoreBanking/FI/Current/FIPROD_ObjComponentList.txt') as openfile3:
+                for line3 in openfile3:
+                    if path in line3:
+                        path3 = line3.split()[0]
+                        version11 = line3.split()[1]
+                        version12 = version11.split('.')
+                        ver3 = version12[1]
+                        if int(ver)<int(ver3):
+                            print path + ' ' + version1 + '              Will have later revision!!     ' + version11
+                        else:
+                            tmp += 1
+        if tmp == num:
+            print('No Later Revision Found')
